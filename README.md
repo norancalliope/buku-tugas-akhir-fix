@@ -51,3 +51,4 @@ Berikut adalah daftar repositori lain yang menggunakan template yang berasal dar
 Kode sumber yang ada pada repositori ini dilisensikan di bawah [lisensi MIT](./LICENSE).
 "# buku-tugas-akhir" 
 "# buku-tugas-akhir-fix" 
+"# buku-TA" 

@@ -293,9 +293,9 @@ Pada pengujian ini akan diambil nilai FPS pada laptop dan FPS pada NUC. Spesifik
   \rowcolor[HTML]{C0C0C0}
   \textbf{Komponen} & \textbf{Spesifikasi}  \\
   \hline
-  CPU            & Intel(R) Core(TM) i5-10300H CPU @2.50GHz(8CPU)        \\ \hline
-  RAM            & 16 GB DDR4-2666 SDRAM        \\ \hline
-  GPU            & NVIDIA® GeForce RTX™ 2060 with Max-Q design           \\ \hline
+  CPU            & Intel(R) Core(TM) i7-10750H        \\ \hline
+  RAM            & 16 GB DDR4       \\ \hline
+  GPU            & GTX 1660 Ti         \\ \hline
   \hline
 \end{longtable}
 
@@ -308,9 +308,9 @@ Spesifikasi NUC yang digunakan untuk pengujian ini pada tabel  :
     \rowcolor[HTML]{C0C0C0}
     \textbf{Komponen} & \textbf{Spesifikasi} \\
     \hline
-  CPU            &  Intel® Core™ i7-1165G7        \\
-  RAM            & 32 GBLPDDR4        \\
-  OS            & Windows 11 Home Single Language           \\
+  CPU            &  Intel® Core™ i5-1240P        \\
+  RAM            & 8GB        \\
+  OS            & Ubuntu           \\
   \hline
 \end{longtable}
 
@@ -577,7 +577,7 @@ Pengujian respond time dilakukan dengan cara mencatat hasil klasifikasi dari mod
 
 \end{lstlisting}
 
-Data diatas merupakan sampel data mentah yang didapatkan dari hasil klasifikasi gesture menggunakan model LSTM. Adapun output untuk model YOLO dipisahkan penulisannya dari hasil klasifikasi gesture, hal ini bertujuan untuk mempermudah dalam pengolahan data. Berikut merupakan contoh data mentah untuk hasil deteksi objek menggunakan model YOLOv11, YOLOv8 dan YOLOv12:
+Data diatas merupakan sampel data mentah yang didapatkan dari hasil klasifikasi gesture menggunakan model LSTM. Adapun output untuk model YOLO dipisahkan penulisannya dari hasil klasifikasi gestur, hal ini bertujuan untuk mempermudah dalam pengolahan data. Berikut merupakan contoh data mentah untuk hasil deteksi objek menggunakan model YOLOv11 dan YOLOv8
 
 \begin{lstlisting}[language=c]
   
@@ -605,61 +605,40 @@ Output yang didapatkan pada ardruino berisikan Timestamp. Timestamp yang dihasil
   BELOK KANAN,0.0,2024-05-08 22:18:36.392
 \end{lstlisting}
 
-Pengujian ini akan dihitung response time sejumlah 30 kali yang akan dijabarkan pada tabel refxxxxx Hasil rsponse time akan diuji untuk mendapatkan waktu yang dibutuhkan untuk melakukan pendeteksian maupun klasifikasi gesture pada model yang kemudian diteruskan ke ESP32 hingga ke motor kursi roda mulai bergerak. Pengujian ini dilakukan secara real time pada perangkat Laptop, perhitungan delay didapatkan dari mulai dikirim hingga berhentinya motor pada kursi roda. Mengingat bahwa baik inference maupun response kirim dari kedua model berbeda maka tabel akan dibedakan menjadi dua tabel, yaitu tabel untuk model YOLO dan tabel untuk model LSTM.
+Pengujian ini akan dihitung \emph{respond time} sejumlah 5 kali yang akan dijabarkan pada tabel 4.12 Hasil \emph{respond time} akan diuji untuk mendapatkan waktu yang dibutuhkan untuk melakukan pendeteksian maupun klasifikasi gesture pada model yang kemudian diteruskan ke ESP32 hingga ke motor kursi roda mulai bergerak. Pengujian ini dilakukan secara real time pada perangkat Laptop, perhitungan delay didapatkan dari mulai dikirim hingga berhentinya motor pada kursi roda. Mengingat bahwa baik inference maupun response kirim dari kedua model berbeda maka tabel akan dibedakan menjadi dua tabel, yaitu tabel untuk model YOLO dan tabel untuk model LSTM.
 
 \begin{table}[H]
   \centering
-  \label{tb:TabelHasilPengujianResponseTimeLSTM}
+  \label{TabelHasilPengujianResponseTime}
   \caption{Hasil Pengujian Response Time Model LSTM}
   \begin{tabular}{|l|l|l|l|l|l|}
   \hline
-  Inference & Sent & Receive & Motor & Delay & Arah \\ \hline
-            &      &         &       &       &      \\ \hline
-            &      &         &       &       &      \\ \hline
-            &      &         &       &       &      \\ \hline
-            &      &         &       &       &      \\ \hline
-            &      &         &       &       &      \\ \hline
-            &      &         &       &       &      \\ \hline
-            &      &         &       &       &      \\ \hline
-            &      &         &       &       &      \\ \hline
-            &      &         &       &       &      \\ \hline
-            &      &         &       &       &      \\ \hline
-            &      &         &       &       &      \\ \hline
-            &      &         &       &       &      \\ \hline
-            &      &         &       &       &      \\ \hline
-            &      &         &       &       &      \\ \hline
+  Inference & Sent          & Receive       & Motor         & Delay   & Arah  \\ \hline
+  81.6 ms   & 04.06.10.553  & 04.06.10.580  & 04.06.10.600  & 47 ms   & KANAN \\ \hline
+  73.0 ms   & 04.06.10.737  & 04.06.10.760  & 04.06.10.780  & 43 ms   & KANAN \\ \hline
+  76.8 ms  & 04.06.10.098  & 04.06.10.130  & 04.06.10.160  & 62 ms   & KANAN \\ \hline
+  84.5 ms   & 04.06.10.426  & 04.06.10.455  & 04.06.10.485  & 59 ms   & KANAN \\ \hline
+  74.0 ms   & 04.06.10.554  & 04.06.10.580  & 04.06.10.610  & 56 ms   & KANAN \\ \hline
   \end{tabular}
-  \end{table}
+\end{table}
 
-Pada Tabel refxxxxxx Rata - rata waktu delay yang didapatkan adalah xxxxxxxx detik dari data yang sudah didapatkan dari pengujian NUC, adapun hasil nya dapat dilihat pada tabel dibawah. Adapun nilai inference rata-rata yang didapatkan adalah  xxxxxxxx ms.
-
-
+Pada Tabel 4.12 Rata - rata waktu delay yang didapatkan adalah 53.4 ms dari data yang sudah didapatkan dari pengujian Laptop. Adapun nilai inference rata-rata yang didapatkan adalah 77.98 ms.
 
 \begin{table}[H]
   \centering
-  \label{tb:TabelHasilPengujianResponseTimeYOLO}
+  \label{TabelHasilPengujianResponseTimeYOLO}
   \caption{Hasil Pengujian Response Time Model YOLO}
   \begin{tabular}{|l|l|l|l|l|l|}
   \hline
-  Inference & Sent & Receive & Motor & Delay & Arah \\ \hline
-            &      &         &       &       &      \\ \hline
-            &      &         &       &       &      \\ \hline
-            &      &         &       &       &      \\ \hline
-            &      &         &       &       &      \\ \hline
-            &      &         &       &       &      \\ \hline
-            &      &         &       &       &      \\ \hline
-            &      &         &       &       &      \\ \hline
-            &      &         &       &       &      \\ \hline
-            &      &         &       &       &      \\ \hline
-            &      &         &       &       &      \\ \hline
-            &      &         &       &       &      \\ \hline
-            &      &         &       &       &      \\ \hline
-            &      &         &       &       &      \\ \hline
-            &      &         &       &       &      \\ \hline
+  Inference & Sent          & Receive       & Motor         & Delay   & Arah  \\ \hline
+  62.4 ms   & 05.12.08.120  & 05.12.08.140  & 05.12.08.165  & 45 ms   & STOP \\ \hline
+  59.8 ms   & 05.12.08.200  & 05.12.08.220  & 05.12.08.240  & 40 ms   & STOP \\ \hline
+  70.1 ms   & 05.12.08.280  & 05.12.08.305  & 05.12.08.335  & 55 ms   & STOP \\ \hline
+  66.7 ms   & 05.12.08.360  & 05.12.08.385  & 05.12.08.415  & 55 ms   & STOP \\ \hline
+  58.9 ms   & 05.12.08.440  & 05.12.08.465  & 05.12.08.490  & 50 ms   & STOP \\ \hline
   \end{tabular}
-  \end{table}
-
-Pada Tabel refxxxxxx Rata - rata waktu delay yang didapatkan adalah xxxxxxxx detik dari data yang sudah didapatkan dari pengujian NUC, adapun hasil nya dapat dilihat pada tabel dibawah. Adapun nilai inference rata-rata yang didapatkan adalah  xxxxxxxxx ms..
+\end{table}
+Pada Tabel 4.13 Rata - rata waktu delay yang didapatkan adalah 49 ms dari data yang sudah didapatkan dari pengujian NUC, adapun hasil nya dapat dilihat pada tabel dibawah. Adapun nilai inference rata-rata yang didapatkan adalah  63.58 ms.
 
 \subsection{Pengujian Kesesuaian Jarak Pengereman Otomatis}
 Pengujian ini dilakukan pengetasan terhadap model dalam menghasilkan jarak berdasarkan hasil perhitungan pada \emph{Bounding Box}. Pengujian ini dilakukan dengan membandingkan jarak objek asli dengan jarak yang dihasilkan sistem pada Laptop dan Intel NUC terhadap manusia yang berdiri tegak. Kalibrasi telah dilakukan pada jarak 150 cm jarak ini diambil atas dasar visibilitas bounding box. Sehingga didapatkan nilai Focal Length sebesar 480. Nilai-nilai tersebut akan digunakan dalam pengujian kesesuaian jarak pada 150 cm dan 130 cm. Adapun tujuan dilakukan pengujian ini untuk menguji kemampuan model dalam mengukur jarak.
