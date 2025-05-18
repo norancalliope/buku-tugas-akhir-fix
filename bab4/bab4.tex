@@ -2,7 +2,7 @@
 Pada bab ini, akan dijelaskan mengenai hasil dari pengujian dan analisis dari penelitian yang telah diuraikan pada metodologi. Selain itu, akan dipaparkan mengenai skenario dari pengujian yang dilakukan untuk evaluasi performa dari sistem. Pengujian ini dilakukan untuk memastikan bahwa sistem yang telah dirancang mampu berfungsi dengan baik dan situasi yang mungkin dihadapi oleh pengguna.
 \section{Skenario Pengujian}
 Pengujian dilakukan untuk menguji performa dari model dalam melakukan deteksi terhadap gestur untuk sistem kendali dan sistem pengereman otomatis. Skenario pengujian dirancang untuk mengukur berbagai aspek dari sistem seperti akurasi deteksi terhadap kelas yang dipanggil, \emph{respond time}, kecepatan pemrosesan, dan respon sistem terhadap objek di depannya yang berpengaruh kepada pengereman otomatis. Skenario pengujian yang dilakukan adalah sebagai berikut;
-\begin{enumerate}
+\begin{enumerate}[nolistsep]
     \item Hasil Pengujian model
     \item Pengujian berdasarkan FPS
     \item Pengujian berdasarkan hasil \emph{respond time}
@@ -131,18 +131,18 @@ Berikut adalah keseluruhan hasil \emph{training} dari YOLOv11 dengan \emph{epoch
 
 Berikut adalah visualisasi melalui \emph{confusion matrix} terkait dengan pelatihan model YOLOv11 dengan 100 epoch.
 \begin{figure} [H] \centering
-  \includegraphics[scale=0.22]{gambar/confusion_matrix-epoch 100.png}
+  \includegraphics[scale=0.25]{gambar/confusion_matrix-epoch 100.png}
   \caption{ \emph{Confusion matrix epoch} 100}
   \label{fig:Cm epoch 100}
 \end{figure}
-Dari gambar 4.9 hasil pelatihan menunjukan dua kelas yakni manusia dan \emph{background}.
+Dari gambar \ref{fig:Cm epoch 100} hasil pelatihan menunjukan dua kelas yakni manusia dan \emph{background}.
 Dari hasil tersebut, model berhasil memprediksi hasil benar sebanyak 1780 sampel manusia. 
 Namun, terdapat 510 sampel \emph{background} yang salah diklasifikasikan oleh model sebagai manusia. Disisi lain, model melewatkan 
 466 sampel manusia yang diklasifikasikan sebagai \emph{background}. Tidak ada prediksi yang benar-benar untuk kelas \emph{background}, yang mengindikasikan bahwa model cenderung memprioritaskan prediksi kelas manusia dan kurang mampu membedakan objek \emph{background} dengan baik. Hal ini menunjukkan adanya kecenderungan \emph{false positive} dan \emph{false negative} yang cukup signifikan.
 
 Sebaliknya adalah kurva F1-\emph{Confidence} dari hasil pelatihan model YOLOv11 dengan \emph{epoch} 100.
 \begin{figure} [H] \centering
-  \includegraphics[scale=0.25]{gambar/F1_curve-100.png}
+  \includegraphics[scale=0.35]{gambar/F1_curve-100.png}
   \caption{Kurva F1-\emph{Confidence} pelatihan epoch 100}
   \label{fig:Pengujian Performa F1-100}
 \end{figure}
@@ -179,14 +179,14 @@ Berdasarkan perbandingan performa kedua model, model pada epoch ke-100 menunjukk
 Dataset untuk LSTM diambil dalam lima kelas dengan kelas yakni kelas kanan, stop, maju, mundur, dan kiri. Masing-masing kelas berjumlah 30 citra yang
 telah di normalisasi tiap citranya, sebagai contoh pada gambar \ref{fig:Data set kelas kanan raw} merupakan gambar asli atau data mentah.
 \begin{figure} [H] \centering
-  \includegraphics[scale=0.2]{gambar/0-clear.jpg}
+  \includegraphics[scale=0.3]{gambar/0-clear.jpg}
   \caption{Dataset kelas kanan \emph{clear}}
   \label{fig:Data set kelas kanan raw}
 \end{figure}
 
 Kemudian pada gambar \ref{fig:dataset kelas kanan clear} menunjukan citra wajah dan tangan dengan titik-titik \emph{landmark} yang telah di deteksi menggunakan media pipe.
 \begin{figure} [H] \centering
-  \includegraphics[scale=0.2]{gambar/1.jpg}
+  \includegraphics[scale=0.3]{gambar/1.jpg}
   \caption{Dataset kelas kanan \emph{landmark}}
   \label{fig:dataset kelas kanan clear}
 \end{figure}
@@ -829,7 +829,7 @@ Dari hasil yang didapatkan pada tabel \ref{tb:tabelyolov11performa} pada 10 kali
 
 \begin{table}[H]
   \centering
-  \caption{Tabel Performa Keberhasilan Pengereman Otomatis menggunakan YOLOv11}
+  \caption{Tabel Performa Keberhasilan Pengereman Otomatis menggunakan YOLOv8}
   \label{tb:tabelyolov8performa}
   \begin{tabular}{|c|c|}
     \hline
@@ -881,7 +881,7 @@ Untuk mengetahui lebih dalam performa dari model dalam melakukan pengereman maka
   \label{fig:FotoPengambilanakurasi}
 \end{figure}
 
-Jarak yang telah diukur lalu dibandingkan sehingga menghasilkan Tabel \ref{tb:akurasijarak} yang berisi nilai jarak pengukuran nyata saat pengereman (Real Distance), Jarak pada sistem yang telah dicatat (System Distance), Error nyata, dan error sistem. Adapun tujuan dilakukannya pengujian ini yaitu untuk mengetahui kesalahan jarak yang dihasilkan dari sistem dan juga mengetahui penyebab kesalahan pengukuran jarak tersebut.
+Jarak yang telah diukur lalu dibandingkan sehingga menghasilkan Tabel \ref{tb:akurasijarak} yang berisi nilai jarak pengukuran nyata saat pengereman (\emph{Real Distance}), Jarak pada sistem yang telah dicatat (\emph{System Distance}), Error nyata, dan error sistem. Adapun tujuan dilakukannya pengujian ini yaitu untuk mengetahui kesalahan jarak yang dihasilkan dari sistem dan juga mengetahui penyebab kesalahan pengukuran jarak tersebut.
 
 \begin{table}[H]
   \centering

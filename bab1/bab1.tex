@@ -21,22 +21,23 @@ Selain itu, implementasi LSTM (Long Short-Term Memory), yang merupakan jenis Rec
 
 Lebih jauh, pengembangan kursi roda cerdas yang dilengkapi dengan smart braking system bertujuan untuk meningkatkan keselamatan pengguna. Sistem pengereman otomatis ini dapat mendeteksi objek atau hambatan di sekitar pengguna dengan cepat dan melakukan pengereman secara otomatis, mengurangi risiko kecelakaan.
 
-Dengan demikian, penelitian ini bertujuan untuk mengembangkan sistem kendali kursi roda cerdas yang berbasis gesture SIBI dan smart braking system menggunakan YOLOv11 dan LSTM. Penggunaan teknologi ini diharapkan dapat memberikan solusi mobilitas yang lebih aman, efisien, dan inklusif bagi individu dengan kelumpuhan.
+Dengan demikian, penelitian ini bertujuan untuk mengembangkan sistem kendali kursi roda cerdas yang berbasis gesture SIBI dan \emph{braking system} menggunakan LSTM dan YOLOv11. Penggunaan teknologi ini diharapkan dapat memberikan solusi mobilitas yang lebih aman, efisien, dan inklusif bagi individu dengan kelumpuhan.
 \section{Rumusan Masalah}
 Berdasarkan hal yang telah dipaparkan di latar belakang, meskipun bahasa isyarat seperti SIBI telah diakui sebagai bentuk komunikasi bagi penyandang disabilitas pendengaran dan fisik, implementasinya dalam pengendalian kursi roda masih minim. Tidak banyak sistem kursi roda yang mendukung pengendalian berbasis gestur, terutama gestur bahasa isyarat yang spesifik. Maka dari itu diperlukannya sebuah sistem yang dapat berjalan secara baik dalam komputer lokal atau \emph{Next Unit Computing} (NUC) untuk mendeteksi gestur SIBI dan sistem pengereman otomatis.
-\section{Batasan Masalah atau Ruang Lingkup}
+\section{Batasan Masalah}
 
-Terdapat beberapa Batasan masalah untuk memperjelas penelitian yang dilakukan. Batasan-batasannya adalah sebagai berikut
+Terdapat beberapa Batasan masalah untuk memperjelas penelitian yang dilakukan. Batasan-batasannya adalah sebagai berikut:
 
-\begin{enumerate}
+\begin{enumerate}[nolistsep]
     \item Batasan pada penggunaan gesture SIBI sebagai metode utama kendali kursi roda cerdas.
     \item Penelitian dibatasi pada penggunaan LSTM untuk pengenalan dan deteksi gesture tangan SIBI yang dikombinasikan dengan perangkat keras seperti kamera.
     \item Penggunaan LSTM dibatasi pada pemrosesan urutan data gesture yang diambil dari kamera.
-    \item Fokus pada pengembangan smart braking system untuk meningkatkan keselamatan pengguna kursi roda dalam mendeteksi objek di sekitar kursi roda dan melakukan pengereman otomatis. 
-    \item Sistem smart breaking ini dibatasi pada deteksi manusia di lingkungan sekitarnya tanpa memperhitungkan aspek lain seperti objek-objek yang ada di lingkungan pengujian.
-    \item Penelitian difokuskan pada pengembangan dan integrasi antara perangkat keras (kamera, motor kursi roda) dan perangkat lunak kontrol kursi roda dan smart breaking system.
+    \item Fokus pada pengembangan \emph{braking system }untuk meningkatkan keselamatan pengguna kursi roda dalam mendeteksi objek di sekitar kursi roda dan melakukan pengereman otomatis. 
+    \item Sistem braking ini dibatasi pada deteksi manusia di lingkungan sekitarnya tanpa memperhitungkan aspek lain seperti objek-objek yang ada di lingkungan pengujian.
+    \item Penelitian difokuskan pada pengembangan dan integrasi antara perangkat keras (kamera, motor kursi roda) dan perangkat lunak kontrol kursi roda dan \emph{braking system}.
     \item Pengontrol kursi roda akan diimplementasikan untuk memberikan respon sesuai dengan gestur yang dipanggil dan berhenti otomatis ketika mendeteksi manusia di depannya.
 \end{enumerate}
+\newpage
 
 \section{Tujuan}
 
